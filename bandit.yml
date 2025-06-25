@@ -1,0 +1,4 @@
+skips: [
+    'B101',  # Assert in project
+    'B311'   # Random text
+]
