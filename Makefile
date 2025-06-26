@@ -18,7 +18,7 @@ poetry-install:
 # 🚀 Aplication
 # =============================================================================
 run:
-	poetry run uvicorn app.main:app --reload
+	poetry run uvicorn app.main:app --reload --host 0.0.0.0 --port 8080
 
 shell:
 	poetry run python
@@ -57,6 +57,9 @@ build:
 # =============================================================================
 migrate:
 	poetry run alembic upgrade head
+
+migrate-down:
+	poetry run alembic downgrade -1
 
 makemigrations:
 	poetry run alembic revision --autogenerate -m "$(message)"
