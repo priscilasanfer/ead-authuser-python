@@ -34,6 +34,12 @@ target_metadata = Base.metadata
 
 # Define a URL do banco (pega do Settings, que lê o .env)
 def get_url():
+    # Verifica se DATABASE_URL está disponível diretamente no ambiente
+    database_url = os.getenv("DATABASE_URL")
+    if database_url:
+        return database_url
+
+    # Caso contrário, usa as configurações do Pydantic
     return settings.DATABASE_URL
 
 

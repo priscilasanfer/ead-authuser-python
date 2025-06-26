@@ -6,16 +6,21 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = "development"
     DEBUG: bool = True
 
-    DATABASE_URL: str
-    DB_USER: str
-    DB_PASSWORD: str
-    DB_NAME: str
-    DB_HOST: str
-    DB_PORT: str
+    DATABASE_URL: str = ""
+    DB_USER: str = ""
+    DB_PASSWORD: str = ""
+    DB_NAME: str = ""
+    DB_HOST: str = ""
+    DB_PORT: str = ""
 
     API_V1_STR: str = "/api/v1"
 
     model_config = SettingsConfigDict(env_file=".env")
 
 
-settings = Settings()  # type: ignore
+def get_settings() -> Settings:
+    """Factory function to get settings instance"""
+    return Settings()
+
+
+settings = get_settings()
