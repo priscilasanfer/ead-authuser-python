@@ -4,7 +4,7 @@ from datetime import datetime
 from sqlalchemy import Column, DateTime, Enum, String
 from sqlalchemy.dialects.postgresql import UUID
 
-from app.models import Base
+from app.models.base import Base
 from app.models.enums.user_status import UserStatus
 from app.models.enums.user_type import UserType
 

@@ -6,7 +6,9 @@ from alembic import context
 from sqlalchemy import create_engine, pool
 
 from app.core.config import settings  # sua Settings com pydantic
-from app.models import Base  # onde está seu declarative_base()
+from app.models.base import Base  # onde está seu declarative_base()
+# Importar todos os modelos para o Alembic detectar
+from app.models.user_model import UserModel  # noqa: F401
 
 # Adiciona o path raiz do projeto ao sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
