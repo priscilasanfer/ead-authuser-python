@@ -7,6 +7,7 @@ from sqlalchemy import create_engine, pool
 
 from app.core.config import settings  # sua Settings com pydantic
 from app.models.base import Base  # onde está seu declarative_base()
+
 # Importar todos os modelos para o Alembic detectar
 from app.models.user_model import UserModel  # noqa: F401
 
